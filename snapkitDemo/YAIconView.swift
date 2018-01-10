@@ -21,10 +21,13 @@ class YAIconView: UIView {
 
 }
 
-extension YAIconView:IconViewProtocol {
+extension YAIconView:IconViewProtocol,urlNavProtocol {
     
     func setImageAndTitle(image:String,text:String){
         iconViewSetImageAndLabel(iconName: image, tipTitle: text)
-        
+    }
+    
+    func addTap(currentVc:UIViewController,action: Selector? = nil) -> Void {
+        urlNavTap(currentVC:currentVc , action: action)
     }
 }

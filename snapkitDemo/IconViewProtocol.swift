@@ -28,12 +28,15 @@ extension IconViewProtocol where Self:UIView{
 //        emptyView.translatesAutoresizingMaskIntoConstraints = false;
 //        self.addSubview(emptyView)
 //        emptyView.snp.makeConstraints { (make) in
-////            make.bottom.top.left.right.equalToSuperview()
-//            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(20, 20, 20, 20))
+////            make.bottom.top.left.right.equalToSuperview()//            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(20, 20, 20, 20))
         
             let textLabel = UILabel()
 //            textLabel.numberOfLines = 1; 0 是多行
             textLabel.text = tipTitle;
+        textLabel.adjustsFontSizeToFitWidth = true
+        textLabel.font = UIFont.systemFont(ofSize: 14)
+//        textLabel.
+
         
 //            textLabel.center = CGPoint(x: self.center.x, y: self.center.y + 10)
             
@@ -43,26 +46,28 @@ extension IconViewProtocol where Self:UIView{
             
             textLabel.snp.makeConstraints({ (make) in
                 make.centerX.equalToSuperview()
-                make.centerY.equalToSuperview().offset(10)
+                make.centerY.equalToSuperview().offset(15)
             })
             
             
             let imageView = UIImageView(image: UIImage(named: iconName))
         
         imageView.translatesAutoresizingMaskIntoConstraints = false;
-            imageView.contentMode = .center
+            imageView.contentMode = .scaleToFill
 //            imageView.center = CGPoint(x: self.center.x, y: self.center.y - 25)
             self.addSubview(imageView)
             imageView.snp.makeConstraints({ (make) in
                 make.centerX.equalToSuperview()
-                make.centerY.equalToSuperview().offset(-25)
+                make.centerY.equalToSuperview().offset(-15)
+                make.width.equalTo(30)
+                make.height.equalTo(25)
             })
         
         
 //        view.backgroundColor = [UIColor colorWithRed:random()%256/255.0 green:random()%256/255.0 blue:random()%256/255.0 alpha:1];
-        self.backgroundColor = UIColor(red: CGFloat(arc4random()%256)/255.0, green: CGFloat(arc4random()%256)/255.0, blue: CGFloat(arc4random()%256)/255.0, alpha: 1)
-    
-            
+//        self.backgroundColor = UIColor(red: CGFloat(arc4random()%256)/255.0, green: CGFloat(arc4random()%256)/255.0, blue: CGFloat(arc4random()%256)/255.0, alpha: 1)
+//
+        
         }
     
 

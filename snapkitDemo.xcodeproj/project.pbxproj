@@ -12,6 +12,8 @@
 		F61B423920049B6200E031CF /* ExampleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B423820049B6200E031CF /* ExampleProtocol.swift */; };
 		F61B423D2004E75100E031CF /* YAIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B423C2004E75100E031CF /* YAIconView.swift */; };
 		F61B423F2004F49E00E031CF /* IconViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B423E2004F49E00E031CF /* IconViewProtocol.swift */; };
+		F66F69622005A77C00609AE0 /* urlNavProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66F69612005A77C00609AE0 /* urlNavProtocol.swift */; };
+		F66F69642005AB2500609AE0 /* sefTextTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66F69632005AB2500609AE0 /* sefTextTableViewController.swift */; };
 		F6B4FC3C20038F9700078E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B4FC3B20038F9700078E9C /* AppDelegate.swift */; };
 		F6B4FC3E20038F9700078E9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B4FC3D20038F9700078E9C /* ViewController.swift */; };
 		F6B4FC4120038F9700078E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6B4FC3F20038F9700078E9C /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		F61B423820049B6200E031CF /* ExampleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleProtocol.swift; sourceTree = "<group>"; };
 		F61B423C2004E75100E031CF /* YAIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAIconView.swift; sourceTree = "<group>"; };
 		F61B423E2004F49E00E031CF /* IconViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewProtocol.swift; sourceTree = "<group>"; };
+		F66F69612005A77C00609AE0 /* urlNavProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urlNavProtocol.swift; sourceTree = "<group>"; };
+		F66F69632005AB2500609AE0 /* sefTextTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sefTextTableViewController.swift; sourceTree = "<group>"; };
 		F6B4FC3820038F9700078E9C /* snapkitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snapkitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B4FC3B20038F9700078E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6B4FC3D20038F9700078E9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				F61B423820049B6200E031CF /* ExampleProtocol.swift */,
 				F61B423C2004E75100E031CF /* YAIconView.swift */,
 				F61B423E2004F49E00E031CF /* IconViewProtocol.swift */,
+				F66F69612005A77C00609AE0 /* urlNavProtocol.swift */,
+				F66F69632005AB2500609AE0 /* sefTextTableViewController.swift */,
 			);
 			path = snapkitDemo;
 			sourceTree = "<group>";
@@ -230,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F61B42352004883B00E031CF /* YAUrlButton.swift in Sources */,
+				F66F69622005A77C00609AE0 /* urlNavProtocol.swift in Sources */,
+				F66F69642005AB2500609AE0 /* sefTextTableViewController.swift in Sources */,
 				F61B423F2004F49E00E031CF /* IconViewProtocol.swift in Sources */,
 				F6B4FC3E20038F9700078E9C /* ViewController.swift in Sources */,
 				F61B423920049B6200E031CF /* ExampleProtocol.swift in Sources */,
