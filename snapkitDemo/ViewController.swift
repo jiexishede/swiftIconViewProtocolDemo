@@ -8,7 +8,8 @@
 
 import UIKit
 import SnapKit
-
+    
+    
 class ViewController: UIViewController {
     
     let arrangeStackView = UIStackView()
@@ -17,19 +18,16 @@ class ViewController: UIViewController {
     let moreMoreView = YAIconView()
     let takeCareSalonView = YAIconView()
     
+    var iconWidth : CGFloat?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(arrangeStackView)
         
-        developCurriculumView.translatesAutoresizingMaskIntoConstraints = false;
-        followUpActionView.translatesAutoresizingMaskIntoConstraints = false;
-        takeCareSalonView.translatesAutoresizingMaskIntoConstraints = false;
-        moreMoreView.translatesAutoresizingMaskIntoConstraints = false;    
-
         arrangeStackView.axis = .horizontal
         arrangeStackView.distribution = .fillEqually
-
         arrangeStackView.spacing = 0
         arrangeStackView.alignment = .fill
 
@@ -38,7 +36,9 @@ class ViewController: UIViewController {
         arrangeStackView.addArrangedSubview(developCurriculumView)
         arrangeStackView.addArrangedSubview(takeCareSalonView)
         arrangeStackView.addArrangedSubview(followUpActionView)
-//        arrangeStackView.addArrangedSubview(moreMoreView)
+        arrangeStackView.addArrangedSubview(moreMoreView)
+        
+        iconWidth = self.view.frame.width / CGFloat(arrangeStackView.subviews.count)
         
         arrangeStackView.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
@@ -46,40 +46,11 @@ class ViewController: UIViewController {
             make.width.equalToSuperview()
         }
         
-        let yaIconWith = self.view.frame.width / CGFloat(self.view.subviews.count)
-    
-        followUpActionView.snp.makeConstraints{(make) -> Void in
-            make.height.equalToSuperview()
-            make.width.equalTo(yaIconWith)
-        }
-        takeCareSalonView.snp.makeConstraints{(make) -> Void in
-            make.height.equalToSuperview()
-            make.width.equalTo(yaIconWith)
-        }
-//        moreMoreView.snp.makeConstraints{(make) -> Void in
-//            make.height.equalToSuperview()
-//            make.width.equalTo(yaIconWith)
-//        }
-        developCurriculumView.snp.makeConstraints{(make) -> Void in
-            make.height.equalToSuperview()
-            make.width.equalTo(yaIconWith)
-        }
-    
-        followUpActionView.iconViewSetImageAndLabel(iconName: "home-sfxd", tipTitle: "随访行动")
-                developCurriculumView.iconViewSetImageAndLabel(iconName: "home-hjzl", tipTitle: "患教资料")
-                moreMoreView.iconViewSetImageAndLabel(iconName: "home-gd", tipTitle: "更多")
-                takeCareSalonView.iconViewSetImageAndLabel(iconName: "home-gasl", tipTitle: "关爱沙龙")
-        followUpActionView.urlNavTap(currentVC:self, action: #selector(navigationTo))
-        
-//        let tagGest = UITapGestureRecognizer(target: self, action: #selector(navigationTo(gestureRecognizer:)))
-        
-//        followUpActionView.addGestureRecognizer(tagGest)
-        
-        followUpActionView.urlNavTap(currentVC: self, action: #selector(navigationTo(gestureRecognizer:)))
-        takeCareSalonView.urlNavTap(currentVC: self, action: #selector(navigationTo(gestureRecognizer:)))
-//        moreMoreView.urlNavTap(currentVC: self, action: #selector(navigationTo(gestureRecognizer:)))
-        developCurriculumView.urlNavTap(currentVC: self, action: #selector(navigationTo(gestureRecognizer:)))
-        
+        encapsulationFun(iconView: followUpActionView)
+        encapsulationFun(iconView: takeCareSalonView)
+        encapsulationFun(iconView: developCurriculumView)
+        encapsulationFun(iconView: moreMoreView)
+   
     }
     
     
@@ -93,11 +64,11 @@ class ViewController: UIViewController {
                     let goalVc = sefTextTableViewController()
                     self.navigationController?.pushViewController(goalVc, animated: true)
                     
-//                case moreMoreView:
-//                    print("more")
-//                    let goalVc = sefTextTableViewController()
-//                    self.navigationController?.pushViewController(goalVc, animated: true)
-//
+                case moreMoreView:
+                    print("more")
+                    let goalVc = sefTextTableViewController()
+                    self.navigationController?.pushViewController(goalVc, animated: true)
+                    
                 case developCurriculumView:
                     print("deve")
                     let goalVc = sefTextTableViewController()
@@ -114,6 +85,28 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    
+    func encapsulationFun(iconView: YAIconView) -> Void {
+        iconView.translatesAutoresizingMaskIntoConstraints = false;
+        iconView.snp.makeConstraints{(make) -> Void in
+            make.height.equalToSuperview()
+            make.width.equalTo(iconWidth!)
+        }
+        switch iconView {
+        case followUpActionView:
+             iconView.iconViewSetImageAndLabel(iconName: "home-sfxd", tipTitle: "随访行动")
+        case developCurriculumView:
+             iconView.iconViewSetImageAndLabel(iconName: "home-hjzl", tipTitle: "患教资料")
+        case moreMoreView:
+             iconView.iconViewSetImageAndLabel(iconName: "home-gd", tipTitle: "更多")
+        case takeCareSalonView:
+             iconView.iconViewSetImageAndLabel(iconName: "home-gasl", tipTitle: "关爱沙龙")
+        default:
+             break
+        }
+        iconView.urlNavTap(currentVC: self, action: #selector(navigationTo(gestureRecognizer:)))
     }
     
 
