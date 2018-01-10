@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     
     var iconWidth : CGFloat?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,13 +37,15 @@ class ViewController: UIViewController {
         arrangeStackView.addArrangedSubview(followUpActionView)
         arrangeStackView.addArrangedSubview(moreMoreView)
         
-        iconWidth = self.view.frame.width / CGFloat(arrangeStackView.subviews.count)
-        
         arrangeStackView.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
             make.height.equalTo(95)
             make.width.equalToSuperview()
         }
+        
+        
+        iconWidth = self.view.frame.width / CGFloat(arrangeStackView.subviews.count)
+        
         
         encapsulationFun(iconView: followUpActionView)
         encapsulationFun(iconView: takeCareSalonView)
@@ -52,31 +53,31 @@ class ViewController: UIViewController {
         encapsulationFun(iconView: moreMoreView)
    
     }
-    
-    
+
     @objc func navigationTo(gestureRecognizer: UIGestureRecognizer) {
        
         if gestureRecognizer.state == .ended {
+            let goalVc = sefTextTableViewController()
             if let currentView = gestureRecognizer.view {
                 switch currentView {
                 case followUpActionView:
                     print("follow")
-                    let goalVc = sefTextTableViewController()
+                    
                     self.navigationController?.pushViewController(goalVc, animated: true)
                     
                 case moreMoreView:
                     print("more")
-                    let goalVc = sefTextTableViewController()
+                    
                     self.navigationController?.pushViewController(goalVc, animated: true)
                     
                 case developCurriculumView:
                     print("deve")
-                    let goalVc = sefTextTableViewController()
+                    
                     self.navigationController?.pushViewController(goalVc, animated: true)
                     
                 case takeCareSalonView :
                     print("take")
-                    let goalVc = sefTextTableViewController()
+                    
                     self.navigationController?.pushViewController(goalVc, animated: true)
                     
                 default :
@@ -96,13 +97,13 @@ class ViewController: UIViewController {
         }
         switch iconView {
         case followUpActionView:
-             iconView.iconViewSetImageAndLabel(iconName: "home-sfxd", tipTitle: "随访行动")
+             iconView.iconViewSetImageAndLabel(iconName: "home-sfxd", tipTitle: "tapView1")
         case developCurriculumView:
-             iconView.iconViewSetImageAndLabel(iconName: "home-hjzl", tipTitle: "患教资料")
+             iconView.iconViewSetImageAndLabel(iconName: "home-hjzl", tipTitle: "tapView2")
         case moreMoreView:
-             iconView.iconViewSetImageAndLabel(iconName: "home-gd", tipTitle: "更多")
+             iconView.iconViewSetImageAndLabel(iconName: "home-gd", tipTitle: "tapView3")
         case takeCareSalonView:
-             iconView.iconViewSetImageAndLabel(iconName: "home-gasl", tipTitle: "关爱沙龙")
+             iconView.iconViewSetImageAndLabel(iconName: "home-gasl", tipTitle: "tapView4")
         default:
              break
         }
